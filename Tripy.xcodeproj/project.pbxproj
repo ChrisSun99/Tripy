@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		056DF4F86F0200D0DBD5C328 /* Pods_TripyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D0AB9DCD83CE52910580A03 /* Pods_TripyTests.framework */; };
+		182A176621A3486400C9A5DF /* PopupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A176521A3486400C9A5DF /* PopupUIView.swift */; };
+		182A176821A355B600C9A5DF /* AddTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A176721A355B600C9A5DF /* AddTripsViewController.swift */; };
+		182A176C21A3735600C9A5DF /* TripFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A176B21A3735600C9A5DF /* TripFunctions.swift */; };
+		182A177021A376B700C9A5DF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A176F21A376B700C9A5DF /* Data.swift */; };
 		18A981A22194F91C00FB6E55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981A12194F91C00FB6E55 /* AppDelegate.swift */; };
 		18A981A72194F91C00FB6E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A981A52194F91C00FB6E55 /* Main.storyboard */; };
 		18A981A92194F91E00FB6E55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A981A82194F91E00FB6E55 /* Assets.xcassets */; };
@@ -21,6 +25,8 @@
 		18A981CF219A27CC00FB6E55 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981CE219A27CC00FB6E55 /* CurrentUser.swift */; };
 		18A981D3219A35DF00FB6E55 /* MakePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981D2219A35DF00FB6E55 /* MakePlanViewController.swift */; };
 		18A981D5219A484000FB6E55 /* ExistedPlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981D4219A484000FB6E55 /* ExistedPlansTableViewController.swift */; };
+		18C6FBE1219D29DD007476FA /* ViewPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C6FBE0219D29DD007476FA /* ViewPlanCell.swift */; };
+		18C6FBE5219D3048007476FA /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C6FBE3219D3048007476FA /* TripModel.swift */; };
 		A141E41ADE1E7C23411F0232 /* Pods_Tripy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFDFA62F8F64F25E60C7EE6 /* Pods_Tripy.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182A176521A3486400C9A5DF /* PopupUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupUIView.swift; sourceTree = "<group>"; };
+		182A176721A355B600C9A5DF /* AddTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripsViewController.swift; sourceTree = "<group>"; };
+		182A176B21A3735600C9A5DF /* TripFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFunctions.swift; sourceTree = "<group>"; };
+		182A176F21A376B700C9A5DF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		18A9819E2194F91C00FB6E55 /* Tripy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tripy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A981A12194F91C00FB6E55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18A981A62194F91C00FB6E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +62,8 @@
 		18A981CE219A27CC00FB6E55 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		18A981D2219A35DF00FB6E55 /* MakePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePlanViewController.swift; sourceTree = "<group>"; };
 		18A981D4219A484000FB6E55 /* ExistedPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistedPlansTableViewController.swift; sourceTree = "<group>"; };
+		18C6FBE0219D29DD007476FA /* ViewPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlanCell.swift; sourceTree = "<group>"; };
+		18C6FBE3219D3048007476FA /* TripModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripModel.swift; path = Tripy/TripModel.swift; sourceTree = SOURCE_ROOT; };
 		4DFDFA62F8F64F25E60C7EE6 /* Pods_Tripy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tripy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D7FE115780092355139832 /* Pods-TripyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripyTests/Pods-TripyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D0AB9DCD83CE52910580A03 /* Pods_TripyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182A176221A3437300C9A5DF /* AddTrips */ = {
+			isa = PBXGroup;
+			children = (
+				182A176521A3486400C9A5DF /* PopupUIView.swift */,
+				182A176721A355B600C9A5DF /* AddTripsViewController.swift */,
+			);
+			name = AddTrips;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		18A981952194F91C00FB6E55 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +129,7 @@
 				18A981A52194F91C00FB6E55 /* Main.storyboard */,
 				18A981CA219A22E700FB6E55 /* MapViewController.swift */,
 				18A981D1219A286D00FB6E55 /* Make Plan */,
+				182A176221A3437300C9A5DF /* AddTrips */,
 				18A981D0219A285900FB6E55 /* Model */,
 				18A981C7219A057A00FB6E55 /* Auth */,
 				18A981A82194F91E00FB6E55 /* Assets.xcassets */,
@@ -139,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				18A981CE219A27CC00FB6E55 /* CurrentUser.swift */,
+				182A176B21A3735600C9A5DF /* TripFunctions.swift */,
+				18C6FBE3219D3048007476FA /* TripModel.swift */,
+				182A176F21A376B700C9A5DF /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +175,7 @@
 				18A981D4219A484000FB6E55 /* ExistedPlansTableViewController.swift */,
 				18A981D2219A35DF00FB6E55 /* MakePlanViewController.swift */,
 				18A981CC219A23EB00FB6E55 /* ViewPlanViewController.swift */,
+				18C6FBE0219D29DD007476FA /* ViewPlanCell.swift */,
 			);
 			path = "Make Plan";
 			sourceTree = "<group>";
@@ -184,7 +211,7 @@
 				18A9819A2194F91C00FB6E55 /* Sources */,
 				18A9819B2194F91C00FB6E55 /* Frameworks */,
 				18A9819C2194F91C00FB6E55 /* Resources */,
-				2E3CACDD8B50258352DECEEB /* [CP] Embed Pods Frameworks */,
+				3245B691E823168FCD6B78A4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,7 +301,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E3CACDD8B50258352DECEEB /* [CP] Embed Pods Frameworks */ = {
+		3245B691E823168FCD6B78A4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,11 +385,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A981D5219A484000FB6E55 /* ExistedPlansTableViewController.swift in Sources */,
+				182A176621A3486400C9A5DF /* PopupUIView.swift in Sources */,
+				18C6FBE5219D3048007476FA /* TripModel.swift in Sources */,
+				182A176821A355B600C9A5DF /* AddTripsViewController.swift in Sources */,
 				18A981CB219A22E700FB6E55 /* MapViewController.swift in Sources */,
 				18A981C4219A051900FB6E55 /* LoginViewController.swift in Sources */,
 				18A981CF219A27CC00FB6E55 /* CurrentUser.swift in Sources */,
+				182A177021A376B700C9A5DF /* Data.swift in Sources */,
+				18C6FBE1219D29DD007476FA /* ViewPlanCell.swift in Sources */,
 				18A981CD219A23EB00FB6E55 /* ViewPlanViewController.swift in Sources */,
 				18A981C6219A054800FB6E55 /* SignUpViewController.swift in Sources */,
+				182A176C21A3735600C9A5DF /* TripFunctions.swift in Sources */,
 				18A981A22194F91C00FB6E55 /* AppDelegate.swift in Sources */,
 				18A981D3219A35DF00FB6E55 /* MakePlanViewController.swift in Sources */,
 			);

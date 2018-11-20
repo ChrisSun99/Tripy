@@ -17,12 +17,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         nameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var profileimage: UIImageView!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,6 +34,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let email = emailField.text else { return }
         guard let password = passwordField.text else { return }
         guard let name = nameField.text else { return }
+        guard let profileimage = profileimage.image else {return}
+        
         
         Auth.auth().createUser(withEmail: email, password: password, completion: {
             (user, error) in
@@ -40,13 +44,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
+                self.uploadProfileImage(profileimage) {url in
+                    
+                }
                 let changeRequest = user!.user.createProfileChangeRequest()
                 changeRequest.displayName = name
+               // changeRequest.photoURL = url
                 changeRequest.commitChanges(completion: {
                     (err) in
                     if let err = err {
                         print(err)
                     } else {
+                        
                         self.performSegue(withIdentifier: "signupToMain", sender: nil)
                     }
                 })
@@ -57,6 +66,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storageRef = Storage.storage().reference().child("user/\(uid)")
+        
+        guard let imageData = profileimage.image!.jpegData(compressionQuality:0.75) else { return }
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        storageRef.putData(imageData, metadata: metaData) { metaData, error in
+            if error == nil, metaData != nil {
+                
+                storageRef.downloadURL { url, error in
+                    
+                    completion(url)
+                    // success!
+                }
+            } else {
+                // failed
+                completion(nil)
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -12,11 +12,13 @@ target 'Tripy' do
   pod 'SDWebImage'
   pod 'MBProgressHUD'
   pod 'SDWebImage'
-  pod 'FirebaseDatabase'
+  pod 'Firebase/Database'
 
   target 'TripyTests' do
     inherit! :search_paths
     # Pods for testing
+
+
   end
 
 

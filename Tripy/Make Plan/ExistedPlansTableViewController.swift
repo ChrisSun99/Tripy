@@ -27,9 +27,11 @@ final class Todo {
 class ExistedPlansTableViewController: UITableViewController {
     var plans = [Todo]()
     
-    @IBAction func addnewplan(_ sender: Any) {
-        performSegue(withIdentifier: "makenewplan", sender: self)
-    }
+   
+    @IBOutlet weak var addButton: UIButton!
+    
+
+
     
     
     override func viewDidLoad() {
@@ -41,7 +43,19 @@ class ExistedPlansTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        }}
+        }
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddTripSegue" {
+            let popup = segue.destination as! AddTripsViewController
+            popup.doneSaving = {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath) ->
         UISwipeActionsConfiguration?{
@@ -51,6 +65,10 @@ class ExistedPlansTableViewController: UITableViewController {
             
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 160 
+    }
+    
     func editFunction(at indexPath: IndexPath) -> UIContextualAction{
         //performSegue(withIdentifier: "tomakeplan", sender: self)
         let todo = plans[indexPath.row]
@@ -58,6 +76,7 @@ class ExistedPlansTableViewController: UITableViewController {
             completion(true)
         }
         action.image = UIImage(named:"edit")
+       
         action.backgroundColor = todo.isImportant ? .purple : .gray
         return action
     }
@@ -75,7 +94,7 @@ class ExistedPlansTableViewController: UITableViewController {
         self.tableView.deleteRows(at:[indexPath], with: .automatic)
         completion(true)
     }
-    action.image = UIImage(named:"delete")
+    //action.image = UIImage(named:"delete")
     action.backgroundColor = .red
     return action
 }

@@ -7,6 +7,9 @@ PODS:
     - FirebaseAnalytics (= 5.3.0)
   - Firebase/CoreOnly (5.12.0):
     - FirebaseCore (= 5.1.7)
+  - Firebase/Database (5.12.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.3)
   - Firebase/Storage (5.12.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.3)
@@ -77,8 +80,8 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Database
   - Firebase/Storage
-  - FirebaseDatabase
   - MBProgressHUD
   - SDWebImage
 
@@ -117,6 +120,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 123429307882d96ab439bcdd0fb8a3fe80d23443
+PODFILE CHECKSUM: 6992a546670f0f5035c96af796332dba6f4948ab
 
 COCOAPODS: 1.5.3
