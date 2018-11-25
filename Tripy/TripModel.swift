@@ -34,7 +34,7 @@ class TripModel {
 //    var locationInfo: CLLocation
     
     // Start time
-    //var starttime: Date
+    //var starttime: Date?
     
     // End time
    // var endtime: Date
@@ -45,16 +45,19 @@ class TripModel {
     // User ID
    // var user: String
     
+//    var isImportant: Bool
  
     init(name: String,
          image: UIImage? = nil
-//         locationInfo: CLLocation,
-        // starttime: Date, endtime: Date, pincolor: String, user: String
-        ){
+//         locationInfo: CLLocation, starttime: Date,
+//         isImportant: Bool
+         //endtime: Date, pincolor: String, user: String
+    ){
         self.name = name
         self.image = image 
 //        self.locationInfo = locationInfo
 //        self.starttime = starttime
+//        self.isImportant = false
 //        self.endtime = endtime
 //        self.pincolor = pincolor
 //        self.user = user

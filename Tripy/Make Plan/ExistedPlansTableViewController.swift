@@ -9,24 +9,24 @@
 
 
 import UIKit
-final class Todo {
-    let title: String
-    let date: Date
-    var isImportant: Bool
-    var isFinished: Bool
-    var description: String?
-    
-    init(title: String ) {
-        self.title = title
-        self.date = Date()
-        self.isImportant = false
-        self.isFinished = false
-       
-    }
-}
+//final class Todo {
+//    let title: String
+//    let date: Date
+//    var isImportant: Bool
+//    var isFinished: Bool
+//    var description: String?
+//
+//    init(title: String ) {
+//        self.title = title
+//        self.date = Date()
+//        self.isImportant = false
+//        self.isFinished = false
+//
+//    }
+//}
 class ExistedPlansTableViewController: UITableViewController {
-    var plans = [Todo]()
-    
+    var plans = [TripModel]()
+    var tripIndexToEdit: Int?
    
     @IBOutlet weak var addButton: UIButton!
     
@@ -37,7 +37,7 @@ class ExistedPlansTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in 1...10 {
-            plans.append(Todo(title: "Trip #\(i)"))
+            plans.append(TripModel(name: "Berkeley #\(i)"))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,9 +48,11 @@ class ExistedPlansTableViewController: UITableViewController {
         
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddTripSegue" {
             let popup = segue.destination as! AddTripsViewController
+            popup.tripIndexToEdit = self.tripIndexToEdit
             popup.doneSaving = {
                 self.tableView.reloadData()
             }
@@ -70,16 +72,27 @@ class ExistedPlansTableViewController: UITableViewController {
     }
     
     func editFunction(at indexPath: IndexPath) -> UIContextualAction{
-        //performSegue(withIdentifier: "tomakeplan", sender: self)
-        let todo = plans[indexPath.row]
-        let action = UIContextualAction(style: .normal, title:"important") {(action, view, completion) in todo.isImportant = !todo.isImportant
-            completion(true)
+
+    
+        let action = UIContextualAction(style: .normal, title: "Edit") {(action, view, completion)  in
+//            self.tripIndexToEdit = indexPath.row 
+            self.performSegue(withIdentifier: "toAddTripSegue", sender: nil)
+            
         }
-        action.image = UIImage(named:"edit")
-       
-        action.backgroundColor = todo.isImportant ? .purple : .gray
+        
+        action.backgroundColor = .gray
         return action
     }
+        
+//        let todo = plans[indexPath.row]
+//        let action = UIContextualAction(style: .normal, title:"important") {(action, view, completion) in todo.isImportant = !todo.isImportant
+//            completion(true)
+//        }
+//        action.image = UIImage(named:"edit")
+//
+//        action.backgroundColor = todo.isImportant ? .purple : .gray
+//        return action
+    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "tomakenewplan" {
 //            _ = segue.destination as! ExistedPlansTableViewController
@@ -95,6 +108,7 @@ class ExistedPlansTableViewController: UITableViewController {
         completion(true)
     }
     //action.image = UIImage(named:"delete")
+    
     action.backgroundColor = .red
     return action
 }
@@ -113,8 +127,8 @@ class ExistedPlansTableViewController: UITableViewController {
         
         // Configure the cell...
         let plan = plans[indexPath.row]
-        cell.textLabel?.text = plan.title
-        cell.detailTextLabel?.text = plan.date.description
+        cell.textLabel?.text = plan.name
+      //  cell.detailTextLabel?.text = plan.date.description
         
         return cell
     }

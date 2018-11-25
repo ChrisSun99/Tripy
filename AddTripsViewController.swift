@@ -11,18 +11,22 @@ import Photos
 
 class AddTripsViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
-    }
+ 
     @IBOutlet weak var TripTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     
     var doneSaving: (() -> ())?
+    var tripIndexToEdit: Int?
     
-    
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let index = tripIndexToEdit {
+            let trip = Data.tripModels[index]
+            TripTextField.text = trip.name
+            Userimage.image = trip.image 
+        }
+        // Do any additional setup after loading the view.
+    }
     @IBOutlet weak var imageView: UIButton!  //the camera icon
     
     @IBAction func addPhoto(_ sender: Any) { //choose a background picture from photo library
@@ -76,7 +80,14 @@ class AddTripsViewController: UIViewController {
             TripTextField.rightViewMode = .always
             return
         }
+        if let index = tripIndexToEdit{
+            TripFunctions.updateTrip(at: index , title: newTripName, image: Userimage.image)
+            
+        } else {
         TripFunctions.createTrip(tripModel: TripModel(name: TripTextField.text!))
+        
+    }
+   
         if let doneSaving = doneSaving {
             doneSaving()
         }
@@ -98,15 +109,36 @@ class AddTripsViewController: UIViewController {
 
 
 extension AddTripsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
-    {
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-             print("Error: \(info)")
-             return
-        }
-            self.Userimage.image = selectedImage
-            self.Userimage.contentMode = .scaleAspectFill
-        
-        dismiss(animated:true)
-    }}
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+   if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+    self.Userimage.image = image
+}
+    dismiss(animated: true)
+}
+
+func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+    dismiss(animated:true )
+}
+}
+
+
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any])-> [String:Any]{
+    return Dictionary(uniqueKeysWithValues: input.map{key,value in (key.rawValue, value)})
+}
+
+fileprivate func convertFromUIImagePickerControllerInfoKey (_ input: UIImagePickerController.InfoKey) -> String{
+    return input.rawValue
+
+}
+//    {
+//        guard let selectedImage = info[.originalImage] as? UIImage else {
+//             print("Error: \(info)")
+//             return
+//        }
+//            self.Userimage.image = selectedImage
+//            self.Userimage.contentMode = .scaleAspectFill
+//
+//        dismiss(animated:true)
+//    }}
 

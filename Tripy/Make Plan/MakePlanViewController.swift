@@ -18,6 +18,9 @@ class MakePlanViewController: UIViewController {
         performSegue(withIdentifier: "viewplan", sender: self)
     }
     
+
+    @IBOutlet weak var interval: UILabel!
+    
  
         
     var datePicker: UIDatePicker?
@@ -45,6 +48,15 @@ class MakePlanViewController: UIViewController {
         inputTextField.inputView = datePicker
         anotherinputTextField.inputView = anotherdatePicker
         
+       
+        
+        let startDate = datePicker!.date
+        let endDate = anotherdatePicker!.date
+    
+        let diffInDays = Calendar.current.dateComponents([.day], from:startDate, to: endDate).day
+    
+        
+        interval.text = String(diffInDays!)
         // Do any additional setup after loading the view.
     }
     
@@ -89,5 +101,10 @@ class MakePlanViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    
+    // The following two lines set the `startDate` and `endDate` to the start of the day
+    
+   
 }
