@@ -79,7 +79,7 @@ class ViewPlanViewController: UITableViewController {
              tableView.deleteRows(at: indexPaths, with: .fade)
         } else {
         
-        // twoDimensionalArray[section].removeAll()
+
             tableView.insertRows(at: indexPaths, with: .fade)
             
         }
