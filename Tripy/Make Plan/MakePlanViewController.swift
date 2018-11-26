@@ -20,13 +20,10 @@ class MakePlanViewController: UIViewController {
     
 
     @IBOutlet weak var interval: UILabel!
-    
- 
+
         
     var datePicker: UIDatePicker?
     var anotherdatePicker: UIDatePicker?
-        
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +50,16 @@ class MakePlanViewController: UIViewController {
         let startDate = datePicker!.date
         let endDate = anotherdatePicker!.date
     
-        let diffInDays = Calendar.current.dateComponents([.day], from:startDate, to: endDate).day
-    
-        
-        interval.text = String(diffInDays!)
+       // let diffInDays = Calendar.current.dateComponents([.day], from:startDate, to: endDate).day
+        let diffInDays = DateInterval(start: startDate, end: endDate)
+        interval.text = String(diffInDays.duration)
         // Do any additional setup after loading the view.
     }
     
+    
+    
     @IBAction func createplans(_ sender: Any) {
-        performSegue(withIdentifier: "displayplans", sender: self)
+        performSegue(withIdentifier: "viewplan", sender: self)
     }
     
     @IBAction func cancel(_ sender: Any) {

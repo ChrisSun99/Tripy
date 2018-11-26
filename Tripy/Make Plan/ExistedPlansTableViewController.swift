@@ -9,35 +9,32 @@
 
 
 import UIKit
-//final class Todo {
-//    let title: String
-//    let date: Date
-//    var isImportant: Bool
-//    var isFinished: Bool
-//    var description: String?
-//
-//    init(title: String ) {
-//        self.title = title
-//        self.date = Date()
-//        self.isImportant = false
-//        self.isFinished = false
-//
-//    }
-//}
+
 class ExistedPlansTableViewController: UITableViewController {
-    var plans = [TripModel]()
+//    var plans = [TripModel]()
+    var plans = Data.tripModels
     var tripIndexToEdit: Int?
    
     @IBOutlet weak var addButton: UIButton!
-    
 
+    
+    @IBOutlet var mytableView: UITableView!
+    
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 1...10 {
-            plans.append(TripModel(name: "Berkeley #\(i)"))
+        mytableView.dataSource = self
+        mytableView.delegate = self
+        for i in 1...3 {
+            plans.append(TripModel(name: "Trip #\(i)"))
+        TripFunctions.readTrips(completion: {[weak self] in
+            self?.mytableView.reloadData()
+        })
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -53,11 +50,12 @@ class ExistedPlansTableViewController: UITableViewController {
         if segue.identifier == "toAddTripSegue" {
             let popup = segue.destination as! AddTripsViewController
             popup.tripIndexToEdit = self.tripIndexToEdit
-            popup.doneSaving = {
-                self.tableView.reloadData()
+            popup.doneSaving = { [weak self] in
+                self?.mytableView.reloadData()
             }
         }
     }
+
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath) ->
         UISwipeActionsConfiguration?{
@@ -76,7 +74,7 @@ class ExistedPlansTableViewController: UITableViewController {
     
         let action = UIContextualAction(style: .normal, title: "Edit") {(action, view, completion)  in
 //            self.tripIndexToEdit = indexPath.row 
-            self.performSegue(withIdentifier: "toAddTripSegue", sender: nil)
+            self.performSegue(withIdentifier: "ToMakeANewPlan", sender: nil)
             
         }
         
@@ -104,7 +102,7 @@ class ExistedPlansTableViewController: UITableViewController {
     func deleteFunction(at indexPath: IndexPath) ->UIContextualAction {
     let action = UIContextualAction(style: .destructive, title: "Delete") {(action,view,completion) in
         self.plans.remove(at: indexPath.row)
-        self.tableView.deleteRows(at:[indexPath], with: .automatic)
+        self.mytableView.deleteRows(at:[indexPath], with: .automatic)
         completion(true)
     }
     //action.image = UIImage(named:"delete")
