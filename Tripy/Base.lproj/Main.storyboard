@@ -581,8 +581,11 @@
     </scenes>
     <resources>
         <image name="camera " width="25.600000381469727" height="25.600000381469727"/>
+
         <image name="coverphoto" width="2832" height="4240"/>
         <image name="iconfind" width="256" height="256"/>
+
+>>>>>>> 2de23d01b34cf6a260833caf95865bffe9b8c0da
         <image name="plus" width="491.51998901367188" height="491.51998901367188"/>
     </resources>
     <inferredMetricsTieBreakers>
