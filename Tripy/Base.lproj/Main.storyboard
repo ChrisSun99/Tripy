@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zQx-jm-plz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="doI-3c-Z9a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,64 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Start Page View Controller-->
+        <scene sceneID="LGJ-JY-BFB">
+            <objects>
+                <viewController id="doI-3c-Z9a" customClass="StartPageViewController" customModule="Tripy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0rZ-ha-h40">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coverphoto" translatesAutoresizingMaskIntoConstraints="NO" id="cw8-mH-cUK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TRIPY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlX-bp-dOL" userLabel="Title Label">
+                                <rect key="frame" x="133" y="116" width="115" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Trip. Your Choice." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5T-l6-buu" userLabel="Desc Label">
+                                <rect key="frame" x="86" y="284" width="217" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDn-di-IfU" userLabel="Find Label">
+                                <rect key="frame" x="144" y="464" width="87" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owc-VO-vSv" userLabel="Go Button">
+                                <rect key="frame" x="158" y="391" width="64" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="iconfind"/>
+                                <connections>
+                                    <action selector="Go:" destination="doI-3c-Z9a" eventType="touchUpInside" id="bml-Vh-PtU"/>
+                                    <segue destination="szF-QR-bI1" kind="show" identifier="gotologinpage" id="gFu-Fy-icD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="30n-xC-Tws"/>
+                    </view>
+                    <connections>
+                        <outlet property="bgImage" destination="cw8-mH-cUK" id="v9s-Yh-bU5"/>
+                        <outlet property="descLabel" destination="A5T-l6-buu" id="D0e-Bf-egU"/>
+                        <outlet property="findLabel" destination="EDn-di-IfU" id="VUd-0B-bLx"/>
+                        <outlet property="goButton" destination="Owc-VO-vSv" id="I94-XC-U3c"/>
+                        <outlet property="titleLabel" destination="vlX-bp-dOL" id="ORy-kV-Vs3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6P-Fh-1Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-488.80000000000001" y="-591.45427286356824"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="j9m-z8-HgE">
             <objects>
@@ -80,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQW-aB-ehT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-444" y="-592.35382308845578"/>
+            <point key="canvasLocation" x="671" y="-591"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="f3M-ci-wfc">
@@ -174,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wr6-9e-72Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-463.19999999999999" y="232.53373313343329"/>
+            <point key="canvasLocation" x="351" y="283"/>
         </scene>
         <!--Existed Plans Table View Controller-->
         <scene sceneID="jzv-8Q-5vz">
@@ -523,11 +581,16 @@
     </scenes>
     <resources>
         <image name="camera " width="25.600000381469727" height="25.600000381469727"/>
+
+        <image name="coverphoto" width="2832" height="4240"/>
+        <image name="iconfind" width="256" height="256"/>
+
+
         <image name="plus" width="491.51998901367188" height="491.51998901367188"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9sg-Vv-GyD"/>
         <segue reference="E3T-hE-Pbc"/>
         <segue reference="g4y-5v-kCn"/>
+        <segue reference="gFu-Fy-icD"/>
     </inferredMetricsTieBreakers>
 </document>

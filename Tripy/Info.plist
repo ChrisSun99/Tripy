@@ -43,5 +43,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>SWIFT_ENABLE_BATCH_MODE</key>
+	<false/>
 </dict>
 </plist>

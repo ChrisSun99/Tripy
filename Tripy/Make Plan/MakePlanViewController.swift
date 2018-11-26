@@ -32,30 +32,59 @@ class MakePlanViewController: UIViewController {
         datePicker?.addTarget(self, action:
             #selector(MakePlanViewController.dateChanged(datePicker:)),
                               for: .valueChanged)
-       
+
+
         anotherdatePicker = UIDatePicker()
         anotherdatePicker?.datePickerMode = .date
         anotherdatePicker?.addTarget(self, action:
             #selector(MakePlanViewController.anotherdateChanged(anotherdatePicker:)),
                               for: .valueChanged)
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MakePlanViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
-        
+
         inputTextField.inputView = datePicker
         anotherinputTextField.inputView = anotherdatePicker
-        
-       
-        
+
+
+
         let startDate = datePicker!.date
         let endDate = anotherdatePicker!.date
-    
+
        // let diffInDays = Calendar.current.dateComponents([.day], from:startDate, to: endDate).day
-        let diffInDays = DateInterval(start: startDate, end: endDate)
+        let diffInDays = computeDuration(start: startDate, end: endDate)
         interval.text = String(diffInDays.duration)
-        // Do any additional setup after loading the view.
+//        // Do any additional setup after loading the view.
+      
+      
+        
+        
     }
     
+//    func changeStart(datePicker: UIDatePicker) {
+//        //datePicker = UIDatePicker()
+//        datePicker.datePickerMode = .date
+//        datePicker.addTarget(self, action:
+//        #selector(MakePlanViewController.dateChanged(datePicker:)),
+//        for: .valueChanged)
+//
+//
+//}
+//
+//    func changeEnd(anotherdatePicker: UIDatePicker){
+//        //anotherdatePicker = UIDatePicker()
+//        anotherdatePicker.datePickerMode = .date
+//        anotherdatePicker.addTarget(self, action:
+//        #selector(MakePlanViewController.anotherdateChanged(anotherdatePicker:)),
+//        for: .valueChanged)
+//        anotherinputTextField.inputView = anotherdatePicker
+//    }
+    
+    
+    func computeDuration(start: Date, end: Date) -> DateInterval {
+        let diffInDays = DateInterval(start: start, end: end)
+        return diffInDays
+    }
     
     
     @IBAction func createplans(_ sender: Any) {
