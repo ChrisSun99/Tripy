@@ -517,8 +517,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera " width="32" height="32"/>
-        <image name="plus" width="512" height="512"/>
+        <image name="camera " width="25.600000381469727" height="25.600000381469727"/>
+        <image name="plus" width="491.51998901367188" height="491.51998901367188"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9sg-Vv-GyD"/>

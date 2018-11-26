@@ -8,6 +8,7 @@
 
 import Foundation
 
-class Pins: NSObject {
+
+class Pin: NSObject {
     
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
-import MapKit
+import GoogleMaps
 
 /*
 - Itinerary
@@ -31,7 +31,7 @@ class TripModel {
     //image
     var image: UIImage?
     // Place
-//    var locationInfo: CLLocation
+    var locationInfo: CLLocationCoordinate2D?
     
     // Start time
     //var starttime: Date?
@@ -40,7 +40,7 @@ class TripModel {
    // var endtime: Date
     
     // Color of pin
-   // var pincolor: String
+    //var pincolor: String
     
     // User ID
    // var user: String
