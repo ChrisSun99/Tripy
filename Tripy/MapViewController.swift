@@ -47,8 +47,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        //
         print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
+    
+    func addPins(){
+        //add pins with user interaction
+    }
+    
+    func deletePins(){
+        //delete pins
+    }
+    
+    
     
     
 }
