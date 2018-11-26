@@ -13,6 +13,9 @@ target 'Tripy' do
   pod 'MBProgressHUD'
   pod 'SDWebImage'
   pod 'Firebase/Database'
+ #Pods for GoogleMaps 
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
   target 'TripyTests' do
     inherit! :search_paths
