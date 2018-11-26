@@ -29,6 +29,9 @@ class TripFunctions {
     }
     
 }
+    
+   
+    
     static func updateTrip(at index: Int, title:String, image: UIImage? = nil){
         Data.tripModels[index].name = title
         Data.tripModels[index].image = image

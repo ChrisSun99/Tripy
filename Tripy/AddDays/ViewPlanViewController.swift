@@ -42,21 +42,25 @@ class ViewPlanViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let button = UIButton(type: .system)
-        button.setTitle("Close", for: .normal)
+       // button.setTitle("Close", for: .normal)
+       
         button.backgroundColor = .yellow
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
         button.tag = section
+        
+  
+        for i in 1...3 {
+        button.setTitle("Day\(i)", for: .normal)
+        }
+        
+       
+        
         return button
-        //let label = UILabel()
-        //let vc = MakePlanViewController()
-        //let duration = Int(vc.interval.text!)
-//        var i = 0
-//        while i <= twoDimensionalArray.count {
-//            label.text  = "Day \(i)"
-//            i =  i + 1
-//        }
+    
+       
+       
 //        label.backgroundColor = UIColor.lightGray
 //        return label
     }
@@ -74,7 +78,7 @@ class ViewPlanViewController: UITableViewController {
         
         let isExpanded = twoDimensionalArray[section].isExpanded
         twoDimensionalArray[section].isExpanded = !isExpanded
-        button.setTitle(isExpanded ? "Open": "Close", for: .normal)
+       // button.setTitle(isExpanded ? "Open": "Close", for: .normal)
         if isExpanded{
              tableView.deleteRows(at: indexPaths, with: .fade)
         } else {
