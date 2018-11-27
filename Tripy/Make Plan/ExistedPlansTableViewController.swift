@@ -9,9 +9,13 @@
 
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class ExistedPlansTableViewController: UITableViewController {
 //    var plans = [TripModel]()
+    
+    
     var plans = Data.tripModels
     var tripIndexToEdit: Int?
    
@@ -21,15 +25,16 @@ class ExistedPlansTableViewController: UITableViewController {
     @IBOutlet var mytableView: UITableView!
     
 
-    
+    var tripfunctions = TripFunctions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mytableView.dataSource = self
         mytableView.delegate = self
         for i in 1...3 {
             plans.append(TripModel(name: "Trip #\(i)"))
-        TripFunctions.readTrips(completion: {[weak self] in
+        tripfunctions.readTrips(completion: {[weak self] in
             self?.mytableView.reloadData()
         })
         

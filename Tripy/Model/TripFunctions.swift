@@ -8,14 +8,32 @@
 
 import Foundation
 import UIKit
+import Firebase
+
 
 class TripFunctions {
-    static func createTrip(tripModel: TripModel) {
-        Data.tripModels.append(tripModel)
-  
+    
+    var ref: DatabaseReference!
+    var makenewplanviewcontroller = MakePlanViewController()
+    
+    func viewDidLoad() {
+        //set the Firebase reference
+       
+        ref = Database.database().reference().child("Plans");
+        
     }
     
-    static func readTrips(completion: @escaping ()-> ()) {
+    func createTrip(tripModel: TripModel) {
+        //Data.tripModels.append(tripModel)
+        
+        //Post data to database
+        let addtripviewcontroller = AddTripsViewController()
+        ref?.child("Plans").childByAutoId().setValue(["name": addtripviewcontroller.titleLabel.text])
+        
+        }
+    
+
+    func readTrips(completion: @escaping ()-> ()) {
     DispatchQueue.global(qos: .userInitiated).async  {
         if Data.tripModels.count == 0{
             
@@ -32,9 +50,12 @@ class TripFunctions {
     
    
     
-    static func updateTrip(at index: Int, title:String, image: UIImage? = nil){
-        Data.tripModels[index].name = title
-        Data.tripModels[index].image = image
+    func updateTrip(at index: Int, title:String, image: UIImage? = nil){
+//        Data.tripModels[index].name = title
+//        Data.tripModels[index].image = image
+        
+        
+        //ref?.child("Plans").childByAutoId().setValue(["name": username])
 }
     static func deleteTrip(index: Int) {
         Data.tripModels.remove(at: index)

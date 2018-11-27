@@ -18,7 +18,6 @@
 		18A981A92194F91E00FB6E55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A981A82194F91E00FB6E55 /* Assets.xcassets */; };
 		18A981AC2194F91E00FB6E55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A981AA2194F91E00FB6E55 /* LaunchScreen.storyboard */; };
 		18A981B72194F91E00FB6E55 /* TripyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981B62194F91E00FB6E55 /* TripyTests.swift */; };
-		18A981C2219A01C700FB6E55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A981C1219A01C700FB6E55 /* GoogleService-Info.plist */; };
 		18A981C4219A051900FB6E55 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981C3219A051900FB6E55 /* LoginViewController.swift */; };
 		18A981C6219A054800FB6E55 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981C5219A054800FB6E55 /* SignUpViewController.swift */; };
 		18A981CB219A22E700FB6E55 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981CA219A22E700FB6E55 /* MapViewController.swift */; };
@@ -28,6 +27,7 @@
 		18A981D5219A484000FB6E55 /* ExistedPlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981D4219A484000FB6E55 /* ExistedPlansTableViewController.swift */; };
 		18BADD7A21ABD99C00C9BD6B /* StartPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BADD7921ABD99C00C9BD6B /* StartPageViewController.swift */; };
 		18C6FBE5219D3048007476FA /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C6FBE3219D3048007476FA /* TripModel.swift */; };
+		18E0F02C21ACC54D006FB976 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E0F02B21ACC54C006FB976 /* GoogleService-Info.plist */; };
 		86740E9321AB726D000F098B /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86740E9221AB726D000F098B /* Pin.swift */; };
 		A141E41ADE1E7C23411F0232 /* Pods_Tripy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFDFA62F8F64F25E60C7EE6 /* Pods_Tripy.framework */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,6 @@
 		18A981B22194F91E00FB6E55 /* TripyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A981B62194F91E00FB6E55 /* TripyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripyTests.swift; sourceTree = "<group>"; };
 		18A981B82194F91E00FB6E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18A981C1219A01C700FB6E55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18A981C3219A051900FB6E55 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		18A981C5219A054800FB6E55 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		18A981CA219A22E700FB6E55 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		18A981D4219A484000FB6E55 /* ExistedPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistedPlansTableViewController.swift; sourceTree = "<group>"; };
 		18BADD7921ABD99C00C9BD6B /* StartPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageViewController.swift; sourceTree = "<group>"; };
 		18C6FBE3219D3048007476FA /* TripModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripModel.swift; path = Tripy/TripModel.swift; sourceTree = SOURCE_ROOT; };
+		18E0F02B21ACC54C006FB976 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DFDFA62F8F64F25E60C7EE6 /* Pods_Tripy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tripy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D7FE115780092355139832 /* Pods-TripyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripyTests/Pods-TripyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D0AB9DCD83CE52910580A03 /* Pods_TripyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +151,7 @@
 				18A981A82194F91E00FB6E55 /* Assets.xcassets */,
 				18A981AA2194F91E00FB6E55 /* LaunchScreen.storyboard */,
 				18A981AD2194F91E00FB6E55 /* Info.plist */,
-				18A981C1219A01C700FB6E55 /* GoogleService-Info.plist */,
+				18E0F02B21ACC54C006FB976 /* GoogleService-Info.plist */,
 			);
 			path = Tripy;
 			sourceTree = "<group>";
@@ -307,8 +307,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A981C2219A01C700FB6E55 /* GoogleService-Info.plist in Resources */,
 				18A981AC2194F91E00FB6E55 /* LaunchScreen.storyboard in Resources */,
+				18E0F02C21ACC54D006FB976 /* GoogleService-Info.plist in Resources */,
 				18A981A92194F91E00FB6E55 /* Assets.xcassets in Resources */,
 				18A981A72194F91C00FB6E55 /* Main.storyboard in Resources */,
 			);

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class MakePlanViewController: UIViewController {
 
@@ -21,12 +23,18 @@ class MakePlanViewController: UIViewController {
 
     @IBOutlet weak var interval: UILabel!
 
-        
+    
+    
+    
     var datePicker: UIDatePicker?
     var anotherdatePicker: UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+
+        
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action:
@@ -89,7 +97,10 @@ class MakePlanViewController: UIViewController {
     
     @IBAction func createplans(_ sender: Any) {
         performSegue(withIdentifier: "viewplan", sender: self)
+        
     }
+    
+   
     
     @IBAction func cancel(_ sender: Any) {
         performSegue(withIdentifier: "toexistedplans", sender: self)

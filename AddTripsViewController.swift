@@ -8,18 +8,27 @@
 
 import UIKit
 import Photos
+import Firebase
+
 
 class AddTripsViewController: UIViewController {
 
- 
+    var ref: DatabaseReference!   //Firebase reference
+    
     @IBOutlet weak var TripTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     
     var doneSaving: (() -> ())?
     var tripIndexToEdit: Int?
+    var tripfunctions = TripFunctions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set the Firebase reference
+       
+        ref = Database.database().reference().child("plans");  
+        
         if let index = tripIndexToEdit {
             let trip = Data.tripModels[index]
             TripTextField.text = trip.name
@@ -81,10 +90,11 @@ class AddTripsViewController: UIViewController {
             return
         }
         if let index = tripIndexToEdit{
-            TripFunctions.updateTrip(at: index , title: newTripName, image: Userimage.image)
+            tripfunctions.updateTrip(at: index , title: newTripName, image: Userimage.image)
             
         } else {
-        TripFunctions.createTrip(tripModel: TripModel(name: TripTextField.text!))
+            
+        tripfunctions.createTrip(tripModel: TripModel(name: TripTextField.text!))
         
     }
    
