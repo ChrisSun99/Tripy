@@ -22,7 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         // Checks if user is already signed in and skips login
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "loginToMain", sender: self)
+            //self.performSegue(withIdentifier: "loginToMain", sender: self)
         }
     }
     override func didReceiveMemoryWarning() {
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
-                self.performSegue(withIdentifier: "loginToMain", sender: nil)
+                //self.performSegue(withIdentifier: "loginToMain", sender: nil)
             }
         })
     }

@@ -14,7 +14,6 @@ class CurrentUser {
     
     var username: String!
     var id: String!
-    var readPostIDs: [String]?
     
     let dbRef = Database.database().reference()
     
