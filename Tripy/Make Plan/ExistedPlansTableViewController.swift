@@ -13,42 +13,54 @@ import Firebase
 import FirebaseDatabase
 
 class ExistedPlansTableViewController: UITableViewController {
-//    var plans = [TripModel]()
+    var plans = MockData.createMockTripModelData()
+    var ref = Database.database().reference()
+    var databaseHandle: DatabaseHandle?
+
     
-    
-    var plans = Data.tripModels
+    //var plans = Data.tripModels
     var tripIndexToEdit: Int?
    
     @IBOutlet weak var addButton: UIButton!
 
     
-    @IBOutlet var mytableView: UITableView!
+  
+    @IBOutlet var mytableView: UITableView?
     
 
     var tripfunctions = TripFunctions()
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.mytableView?.reloadData()
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mytableView.dataSource = self
-        mytableView.delegate = self
-        for i in 1...3 {
-            plans.append(TripModel(name: "Trip #\(i)"))
-        tripfunctions.readTrips(completion: {[weak self] in
-            self?.mytableView.reloadData()
+        loadPost()
+        tripfunctions.readTrips(completion:  { [weak self] in
+            self?.mytableView?.reloadData()
         })
         
-        
+        mytableView?.dataSource = self
+        mytableView?.delegate = self
+//       for i in 1...3 {
+//        plans.append(TripModel(name: "Trip #\(i)"))}
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+}
+    func loadPost(){
+        ref.child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+
+            }
+            
         }
-        
-        
     }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,7 +68,7 @@ class ExistedPlansTableViewController: UITableViewController {
             let popup = segue.destination as! AddTripsViewController
             popup.tripIndexToEdit = self.tripIndexToEdit
             popup.doneSaving = { [weak self] in
-                self?.mytableView.reloadData()
+                self?.mytableView?.reloadData()
             }
         }
     }
@@ -78,7 +90,7 @@ class ExistedPlansTableViewController: UITableViewController {
 
     
         let action = UIContextualAction(style: .normal, title: "Edit") {(action, view, completion)  in
-//            self.tripIndexToEdit = indexPath.row 
+            self.tripIndexToEdit = indexPath.row
             self.performSegue(withIdentifier: "ToMakeANewPlan", sender: nil)
             
         }
@@ -107,7 +119,7 @@ class ExistedPlansTableViewController: UITableViewController {
     func deleteFunction(at indexPath: IndexPath) ->UIContextualAction {
     let action = UIContextualAction(style: .destructive, title: "Delete") {(action,view,completion) in
         self.plans.remove(at: indexPath.row)
-        self.mytableView.deleteRows(at:[indexPath], with: .automatic)
+        self.mytableView?.deleteRows(at:[indexPath], with: .automatic)
         completion(true)
     }
     //action.image = UIImage(named:"delete")
@@ -126,19 +138,32 @@ class ExistedPlansTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! ExistedPlansTableViewCell
         
         // Configure the cell...
-        let plan = plans[indexPath.row]
-        cell.textLabel?.text = plan.name
-      //  cell.detailTextLabel?.text = plan.date.description
+       let plan = plans[indexPath.row]
+//        if cell != nil {
+//            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "TodoCell")
+//        }
         
+        cell.TripTitle.textColor = .black
+        cell.TripTitle.text = plan.name
+        cell.imageView?.image = plan.image
+        cell.imageView?.alpha = 0.5
+        cell.cardView.layer.cornerRadius = 10
+        cell.cardView.layer.shadowColor = UIColor.darkGray.cgColor
         return cell
     }
-
-//    @IBAction func viewplan(_ sender: Any) {
-//        performSegue(withIdentifier: "viewplan", sender: self)
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let trip = Data.tripModels[indexPath.row]
+//        let storyboard = UIStoryboard(name: String(describing: ViewPlanViewController.self), bundle: nil)
+//        let vc = storyboard.instantiateInitialViewController() as! ViewPlanViewController
+//        vc.tripId = trip.id
+//        
 //    }
+
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

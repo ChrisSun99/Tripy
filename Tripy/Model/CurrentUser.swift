@@ -15,6 +15,7 @@ class CurrentUser {
     var username: String!
     var id: String!
     var readPostIDs: [String]?
+//    var trips: [String]?
     
     let dbRef = Database.database().reference()
     
@@ -22,6 +23,7 @@ class CurrentUser {
         let currentUser = Auth.auth().currentUser
         username = currentUser?.displayName
         id = currentUser?.uid
+       
 }
 
  

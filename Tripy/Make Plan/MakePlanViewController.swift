@@ -11,7 +11,7 @@ import Firebase
 
 
 class MakePlanViewController: UIViewController {
-
+    
     @IBOutlet weak var planname: UITextField!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var anotherinputTextField: UITextField!
@@ -68,6 +68,8 @@ class MakePlanViewController: UIViewController {
         
         
     }
+    
+
     
 //    func changeStart(datePicker: UIDatePicker) {
 //        //datePicker = UIDatePicker()

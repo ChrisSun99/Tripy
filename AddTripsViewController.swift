@@ -81,6 +81,7 @@ class AddTripsViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         TripTextField.rightViewMode = .never
+        
         guard TripTextField.text != "", let newTripName = TripTextField.text else {
             let imageView = UIImageView(frame:  CGRect(x: 0, y: 0, width: 30, height: 20))
             imageView.image = UIImage(named: "error")
@@ -93,8 +94,11 @@ class AddTripsViewController: UIViewController {
             tripfunctions.updateTrip(at: index , title: newTripName, image: Userimage.image)
             
         } else {
+            let existed = ExistedPlansTableViewController()
+            existed.plans.append(TripModel(name: "Berkeley", image: #imageLiteral(resourceName: "yosemite")))
+            existed.mytableView?.reloadData()
             
-        tripfunctions.createTrip(tripModel: TripModel(name: TripTextField.text!))
+ //           tripfunctions.createTrip(tripModel: TripModel(name: TripTextField.text!))
         
     }
    

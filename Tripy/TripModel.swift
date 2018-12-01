@@ -12,17 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import GoogleMaps
 
-/*
-- Itinerary
- - Days
-    - Day1
-        - LocationInfo
-        - User
-        - starttime
-        - endtime
 
-
-*/
 
 class TripModel {
     // Name of location
@@ -30,9 +20,12 @@ class TripModel {
     
     //image
     var image: UIImage?
+    
     // Place
     var locationInfo: CLLocationCoordinate2D?
     
+    let id: UUID!
+    var dayModel = [DayModel]()
     // Start time
     //var starttime: Date?
     
@@ -48,13 +41,19 @@ class TripModel {
 //    var isImportant: Bool
  
     init(name: String,
-         image: UIImage? = nil
+         image: UIImage? = nil,
+         dayModel: [DayModel]? = nil
 //         locationInfo: CLLocation, starttime: Date,
 //         isImportant: Bool
          //endtime: Date, pincolor: String, user: String
     ){
+        id = UUID()
         self.name = name
-        self.image = image 
+        self.image = image
+        if let dayModel = dayModel{
+            self.dayModel = dayModel
+        }
+       
 //        self.locationInfo = locationInfo
 //        self.starttime = starttime
 //        self.isImportant = false

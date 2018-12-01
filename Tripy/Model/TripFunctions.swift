@@ -12,7 +12,7 @@ import Firebase
 
 
 class TripFunctions {
-    
+//    var plans = [TripModel]()
     var ref: DatabaseReference!
     var makenewplanviewcontroller = MakePlanViewController()
     
@@ -24,25 +24,39 @@ class TripFunctions {
     }
     
     func createTrip(tripModel: TripModel) {
-        //Data.tripModels.append(tripModel)
-        
+        Data.tripModels.append(tripModel)
+
+
+        let existed = ExistedPlansTableViewController()
+//        existed.plans.append(TripModel(name: "Trip"))
+         existed.mytableView?.reloadData()
+        //print(plans[0].name)
+
         //Post data to database
-        let addtripviewcontroller = AddTripsViewController()
-        ref?.child("Plans").childByAutoId().setValue(["name": addtripviewcontroller.titleLabel.text])
+//        let addtripviewcontroller = AddTripsViewController()
+//        ref?.child("Plans").childByAutoId().setValue(["name": addtripviewcontroller.titleLabel.text])
         
         }
     
 
     func readTrips(completion: @escaping ()-> ()) {
-    DispatchQueue.global(qos: .userInitiated).async  {
-        if Data.tripModels.count == 0{
+         DispatchQueue.global(qos: .userInitiated).async  {
+            if Data.tripModels.count == 0 {
+               Data.tripModels = MockData.createMockTripModelData()
+            }
+            DispatchQueue.main.async {
+                completion()
+            }
+    }
+    }
+    func readTrip(by id: UUID, completion: @escaping (TripModel?)-> ()) {
+    
+        DispatchQueue.global(qos: .userInitiated).async  {
+            let trip = Data.tripModels.first(where: { $0.id == id})
             
-            // add a trip here 
-           
-            
-        }
+       
         DispatchQueue.main.async {
-            completion()
+            completion(trip)
         }
     }
     

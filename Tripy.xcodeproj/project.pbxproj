@@ -13,6 +13,9 @@
 		182A176C21A3735600C9A5DF /* TripFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A176B21A3735600C9A5DF /* TripFunctions.swift */; };
 		182A177021A376B700C9A5DF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A176F21A376B700C9A5DF /* Data.swift */; };
 		1877DD1621A63DFA0098432A /* ExpandableNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877DD1521A63DFA0098432A /* ExpandableNames.swift */; };
+		1878656F21AF7ACB00332563 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878656E21AF7ACB00332563 /* DayModel.swift */; };
+		1878657121AF829600332563 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878657021AF829600332563 /* MockData.swift */; };
+		1878657321AFB88400332563 /* ExistedPlansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878657221AFB88400332563 /* ExistedPlansTableViewCell.swift */; };
 		18A981A22194F91C00FB6E55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A981A12194F91C00FB6E55 /* AppDelegate.swift */; };
 		18A981A72194F91C00FB6E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A981A52194F91C00FB6E55 /* Main.storyboard */; };
 		18A981A92194F91E00FB6E55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A981A82194F91E00FB6E55 /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		182A176B21A3735600C9A5DF /* TripFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFunctions.swift; sourceTree = "<group>"; };
 		182A176F21A376B700C9A5DF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1877DD1521A63DFA0098432A /* ExpandableNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNames.swift; sourceTree = "<group>"; };
+		1878656E21AF7ACB00332563 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
+		1878657021AF829600332563 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		1878657221AFB88400332563 /* ExistedPlansTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistedPlansTableViewCell.swift; sourceTree = "<group>"; };
 		18A9819E2194F91C00FB6E55 /* Tripy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tripy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A981A12194F91C00FB6E55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18A981A62194F91C00FB6E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,7 +185,9 @@
 			children = (
 				18A981CE219A27CC00FB6E55 /* CurrentUser.swift */,
 				182A176B21A3735600C9A5DF /* TripFunctions.swift */,
+				1878657021AF829600332563 /* MockData.swift */,
 				18C6FBE3219D3048007476FA /* TripModel.swift */,
+				1878656E21AF7ACB00332563 /* DayModel.swift */,
 				182A176F21A376B700C9A5DF /* Data.swift */,
 			);
 			path = Model;
@@ -189,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				18A981D4219A484000FB6E55 /* ExistedPlansTableViewController.swift */,
+				1878657221AFB88400332563 /* ExistedPlansTableViewCell.swift */,
 				18A981D2219A35DF00FB6E55 /* MakePlanViewController.swift */,
 			);
 			path = "Make Plan";
@@ -434,7 +443,9 @@
 				18A981D5219A484000FB6E55 /* ExistedPlansTableViewController.swift in Sources */,
 				182A176621A3486400C9A5DF /* PopupUIView.swift in Sources */,
 				18C6FBE5219D3048007476FA /* TripModel.swift in Sources */,
+				1878657321AFB88400332563 /* ExistedPlansTableViewCell.swift in Sources */,
 				86740E9321AB726D000F098B /* Pin.swift in Sources */,
+				1878656F21AF7ACB00332563 /* DayModel.swift in Sources */,
 				182A176821A355B600C9A5DF /* AddTripsViewController.swift in Sources */,
 				18A981CB219A22E700FB6E55 /* MapViewController.swift in Sources */,
 				18A981C4219A051900FB6E55 /* LoginViewController.swift in Sources */,
@@ -443,6 +454,7 @@
 				182A177021A376B700C9A5DF /* Data.swift in Sources */,
 				18A981CD219A23EB00FB6E55 /* ViewPlanViewController.swift in Sources */,
 				18BADD7A21ABD99C00C9BD6B /* StartPageViewController.swift in Sources */,
+				1878657121AF829600332563 /* MockData.swift in Sources */,
 				18A981C6219A054800FB6E55 /* SignUpViewController.swift in Sources */,
 				182A176C21A3735600C9A5DF /* TripFunctions.swift in Sources */,
 				18A981A22194F91C00FB6E55 /* AppDelegate.swift in Sources */,

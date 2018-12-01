@@ -11,18 +11,14 @@ import UIKit
 
 
 class ViewPlanViewController: UITableViewController {
- 
+    var tripId: UUID!
+    var tripModel: TripModel?
     @IBAction func Goback(_ sender: Any) {
         performSegue(withIdentifier: "ToExistedPlans", sender: self)
     }
     
     let cellId = "cellId"
-//    let names = [
-//        "Gong Cha", "Ttoust", "Berkeley Campus"
-//    ]
-//    let anothernames = [
-//        "Chris", "Carl", "Alice"
-//    ]
+
     
     var twoDimensionalArray = [
         ExpandableNames(isExpanded: true, names: ["Gong Cha", "Berkeley", "Ttoust"]),
@@ -35,6 +31,11 @@ class ViewPlanViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         // Do any additional setup after loading the view.
         
+//        TripFunctions().readTrip(by: tripId) { [weak self] (model) in
+//            guard let myself = self else {return}
+//            myself.tripModel = model
+//        }
+        
     }
     
    
@@ -42,27 +43,20 @@ class ViewPlanViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let button = UIButton(type: .system)
-       // button.setTitle("Close", for: .normal)
-       
-        button.backgroundColor = .yellow
+
+        button.backgroundColor = .blue
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
         button.tag = section
         
-  
-        for i in 1...3 {
-        button.setTitle("Day\(i)", for: .normal)
-        }
-        
+        button.setTitle("Day \(section + 1)", for: .normal)
        
         
         return button
     
        
-       
-//        label.backgroundColor = UIColor.lightGray
-//        return label
+
     }
     
     
@@ -117,9 +111,13 @@ class ViewPlanViewController: UITableViewController {
     }
     
   
+}
+//    extension ViewPlanViewController  {
+//        override func numberOfSections(in tableView: UITableView) -> Int {
+//            return tripModel?.dayModel.count ?? 0 ?? 1 ?? 2
+//        }
+//    }
 
-
-   
     /*
     // MARK: - Navigation
 
@@ -130,4 +128,4 @@ class ViewPlanViewController: UITableViewController {
     }
     */
 
-}
+

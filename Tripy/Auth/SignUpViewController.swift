@@ -108,7 +108,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        performSegue(withIdentifier: "loginToMain", sender: self)
+        performSegue(withIdentifier: "toTripList", sender: self)
         
     }
     
